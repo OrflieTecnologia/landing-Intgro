@@ -1168,23 +1168,40 @@ footer ul li a img {
   background-color: var(--cor-quinta);
 }
 
-.clients-grid {
-  max-width: 1080px;
+.clients-carousel {
+  position: relative;
+  max-width: 1140px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  padding: 0 60px;
+}
+
+.clients-track {
+  display: flex;
   gap: var(--espaco-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: var(--espaco-xs) 4px;
+}
+
+.clients-track::-webkit-scrollbar {
+  display: none;
 }
 
 .client-logo {
+  flex: 0 0 auto;
+  width: 260px;
+  min-height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 130px;
-  padding: var(--espaco-md);
+  padding: var(--espaco-lg);
   background-color: var(--cor-quaternaria);
   border: 1px solid var(--cor-borda);
   border-radius: var(--radius-card);
+  scroll-snap-align: start;
   transition: var(--transicao);
 }
 
@@ -1195,10 +1212,52 @@ footer ul li a img {
 }
 
 .client-logo img {
-  max-height: 76px;
+  max-height: 104px;
   max-width: 100%;
   width: auto;
   object-fit: contain;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  color: var(--cor-quaternaria);
+  cursor: pointer;
+  box-shadow: var(--sombra-card);
+  transition: var(--transicao);
+}
+
+.carousel-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.carousel-btn:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  transform: translateY(-50%);
+}
+
+.carousel-prev {
+  left: 0;
+}
+
+.carousel-next {
+  right: 0;
 }
 
 /* ===== Contato — ajustes ===== */
@@ -1481,9 +1540,23 @@ footer {
     margin-right: auto;
   }
 
-  .clients-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 460px;
+  .clients-carousel {
+    padding: 0 var(--espaco-md);
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .client-logo {
+    width: 220px;
+    min-height: 150px;
+    padding: var(--espaco-md);
+  }
+
+  .client-logo img {
+    max-height: 88px;
   }
 
   .features-grid {
@@ -1559,6 +1632,19 @@ footer {
     width: 100%;
     max-width: 280px;
     height: auto;
+  }
+
+  .clients-carousel {
+    padding: 0;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+
+  .clients-track {
+    padding-left: var(--espaco-md);
+    padding-right: var(--espaco-md);
   }
 
   .whatsapp-float {
