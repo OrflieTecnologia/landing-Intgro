@@ -1084,6 +1084,7 @@ footer {
 .footer-brand img {
   height: 42px;
   width: auto;
+  align-self: flex-start;
 }
 
 .footer-tagline {
