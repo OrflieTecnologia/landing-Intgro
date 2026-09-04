@@ -769,11 +769,19 @@ footer ul li a img {
 }
 
 .stats-container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--espaco-lg);
+}
+
+.stats-source {
+  margin-top: var(--espaco-lg);
+  text-align: center;
+  font-family: var(--font-corpo);
+  font-size: var(--text-small);
+  color: #9fb0c9;
 }
 
 .stat {
@@ -802,6 +810,64 @@ footer ul li a img {
   font-size: var(--text-small);
   line-height: 1.5;
   color: #dce3ee;
+}
+
+/* ===== Dor por cargo ===== */
+.roles-section {
+  width: 100%;
+  padding: var(--espaco-2xl) var(--espaco-lg);
+  background-color: var(--cor-primaria);
+}
+
+.roles-section .section-title {
+  color: var(--cor-quaternaria);
+}
+
+.roles-section .section-subtitle {
+  color: #dce3ee;
+}
+
+.roles-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espaco-lg);
+}
+
+.role-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--cor-quaternaria);
+  border-radius: var(--radius-card);
+  padding: var(--espaco-lg);
+  border-top: 4px solid var(--cor-secundaria);
+  box-shadow: var(--sombra-card);
+}
+
+.role-tag {
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background-color: var(--cor-quinta);
+  color: var(--cor-primaria);
+  font-family: var(--font-corpo);
+  font-weight: 600;
+  font-size: var(--text-small);
+  letter-spacing: 0.3px;
+}
+
+.role-question {
+  color: var(--cor-primaria);
+  font-size: var(--text-large);
+  line-height: 1.3;
+}
+
+.role-answer {
+  font-size: var(--text-medium);
+  line-height: 1.6;
+  color: var(--cor-texto-primario);
 }
 
 /* ===== Produto ===== */
@@ -1268,15 +1334,11 @@ footer {
   }
 
   .stats-container {
-    grid-template-columns: repeat(2, 1fr);
     gap: var(--espaco-md);
   }
 
-  .stat:nth-child(3) {
-    border-left: 0;
-  }
-
   .product-grid,
+  .roles-grid,
   .steps,
   .why-grid {
     grid-template-columns: 1fr;
