@@ -1161,6 +1161,46 @@ footer ul li a img {
   font-weight: 600;
 }
 
+/* ===== Clientes ===== */
+.clients-section {
+  width: 100%;
+  padding: var(--espaco-2xl) var(--espaco-lg);
+  background-color: var(--cor-quinta);
+}
+
+.clients-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espaco-md);
+}
+
+.client-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 130px;
+  padding: var(--espaco-md);
+  background-color: var(--cor-quaternaria);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius-card);
+  transition: var(--transicao);
+}
+
+.client-logo:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-card);
+  border-color: transparent;
+}
+
+.client-logo img {
+  max-height: 76px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
 /* ===== Contato — ajustes ===== */
 .contact-text h2 {
   font-family: var(--font-titulo);
@@ -1439,6 +1479,11 @@ footer {
     max-width: 440px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 460px;
   }
 
   .features-grid {
