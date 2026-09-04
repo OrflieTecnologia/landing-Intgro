@@ -1096,7 +1096,7 @@ footer {
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: var(--espaco-sm);
   flex-wrap: wrap;
@@ -1108,10 +1108,7 @@ footer {
   font-size: var(--text-small);
   font-weight: 400;
   color: #cdd6e4;
-}
-
-.footer-credit {
-  opacity: 0.75;
+  text-align: center;
 }
 
 /*Responsivo*/
