@@ -205,6 +205,48 @@ nav {
   color: var(--cor-secundaria);
 }
 
+/* Wrapper do menu — "some" do layout no desktop para o grid do header
+   continuar sendo logo | menu | botão. No mobile ele vira o painel. */
+.nav-collapse {
+  display: contents;
+}
+
+/* Botão hambúrguer — escondido no desktop, exibido no mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  justify-self: end;
+}
+
+.menu-toggle-bar {
+  display: block;
+  width: 26px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: var(--cor-quaternaria);
+  transition: var(--transicao);
+}
+
+.nav-container.open .menu-toggle-bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.nav-container.open .menu-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-container.open .menu-toggle-bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 /*Home*/
 .home-section {
   width: 100%;
@@ -1126,12 +1168,73 @@ footer {
     padding: 0 3rem;
   }
 
+  /* ===== Menu mobile (hambúrguer) ===== */
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-collapse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espaco-md);
+    position: fixed;
+    top: var(--header-height-md);
+    left: 0;
+    right: 0;
+    background-color: var(--cor-primaria);
+    padding: 0 var(--espaco-lg);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.25);
+    transition: max-height 0.35s ease, opacity 0.3s ease,
+      padding 0.35s ease, visibility 0.35s ease;
+  }
+
+  .nav-container.open .nav-collapse {
+    max-height: calc(100vh - var(--header-height-md));
+    overflow-y: auto;
+    opacity: 1;
+    visibility: visible;
+    padding: var(--espaco-lg) var(--espaco-lg) var(--espaco-xl);
+  }
+
   .menu {
-    gap: var(--espaco-sm);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espaco-md);
+    width: 100%;
+  }
+
+  .menu li {
+    width: 100%;
+    text-align: center;
   }
 
   .menu li a {
-    font-size: var(--text-medium);
+    display: block;
+    font-size: var(--text-large);
+    padding: var(--espaco-xs) 0;
+  }
+
+  .menu-btn-contact {
+    margin-left: 0;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .nav-collapse .btn-contact {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 
   .home-section {
@@ -1205,34 +1308,7 @@ footer {
 
 @media (max-width: 600px) {
   header {
-    position: static;
-    height: auto;
-    padding: 1.5rem 2rem;
-  }
-
-  body {
-    padding-top: 0;
-  }
-
-  html {
-    scroll-padding-top: 0;
-  }
-
-  .nav-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--espaco-sm);
-  }
-
-  .logo,
-  .menu-btn-contact {
-    justify-self: auto;
-  }
-
-  .menu {
-    flex-direction: column;
-    gap: var(--espaco-xs);
-    padding: 0;
+    padding: 0 var(--espaco-md);
   }
 
   .home-title,
