@@ -1193,10 +1193,12 @@ footer ul li a img {
 .client-logo {
   flex: 0 0 auto;
   width: 260px;
-  min-height: 170px;
+  min-height: 200px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: var(--espaco-sm);
   padding: var(--espaco-lg);
   background-color: var(--cor-quaternaria);
   border: 1px solid var(--cor-borda);
@@ -1212,10 +1214,18 @@ footer ul li a img {
 }
 
 .client-logo img {
-  max-height: 104px;
-  max-width: 100%;
-  width: auto;
+  height: 104px;
+  width: 104px;
   object-fit: contain;
+  border-radius: var(--radius-input);
+}
+
+.client-name {
+  font-family: var(--font-titulo);
+  font-weight: 600;
+  font-size: var(--text-medium);
+  color: var(--cor-primaria);
+  text-align: center;
 }
 
 .carousel-btn {
@@ -1551,12 +1561,13 @@ footer {
 
   .client-logo {
     width: 220px;
-    min-height: 150px;
+    min-height: 190px;
     padding: var(--espaco-md);
   }
 
   .client-logo img {
-    max-height: 88px;
+    height: 88px;
+    width: 88px;
   }
 
   .features-grid {
