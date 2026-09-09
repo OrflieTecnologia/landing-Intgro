@@ -343,6 +343,9 @@ nav {
 }
 
 .about-container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -350,7 +353,8 @@ nav {
 }
 
 .about-image {
-  flex: 0 0 auto;
+  flex: 1 1 0;
+  max-width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -362,10 +366,9 @@ nav {
 }
 
 .about-video {
-  height: 460px;
+  width: 100%;
+  height: auto;
   max-height: 72vh;
-  width: auto;
-  max-width: 100%;
   display: block;
   border-radius: var(--radius-card);
   box-shadow: var(--sombra-card);
@@ -373,6 +376,7 @@ nav {
 }
 
 .about-text {
+  flex: 1 1 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -1085,9 +1089,33 @@ footer ul li a img {
 }
 
 .assessment-container {
-  max-width: 900px;
+  max-width: 1080px;
   margin: 0 auto;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2xl);
+  text-align: left;
+}
+
+.assessment-text {
+  flex: 1 1 0;
+}
+
+.assessment-media {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.assessment-video {
+  height: 460px;
+  max-height: 72vh;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius-card);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  background-color: #000;
 }
 
 .assessment-title {
@@ -1099,16 +1127,16 @@ footer ul li a img {
 }
 
 .assessment-description {
-  margin: var(--espaco-md) auto 0;
-  max-width: 700px;
+  margin: var(--espaco-md) 0 0;
+  max-width: 640px;
   font-size: var(--text-large);
   line-height: 1.6;
   color: #eef2f8;
 }
 
 .assessment-list {
-  max-width: 640px;
-  margin: var(--espaco-lg) auto;
+  max-width: none;
+  margin: var(--espaco-lg) 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px var(--espaco-lg);
@@ -1533,11 +1561,10 @@ footer {
   }
 
   .about-image {
-    width: auto;
-  }
-
-  .about-video {
-    height: 400px;
+    flex: none;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
   }
 
   .solutions-cards {
@@ -1550,6 +1577,27 @@ footer {
   .contact-container {
     flex-direction: column;
     gap: var(--espaco-lg);
+  }
+
+  .assessment-container {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--espaco-lg);
+  }
+
+  .assessment-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .assessment-list {
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .assessment-video {
+    height: 400px;
   }
 
   .stats-container {
